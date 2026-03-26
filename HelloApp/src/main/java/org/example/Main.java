@@ -4,12 +4,10 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        if (args.length > 0) {
-            // This line runs if you put "Immanuel" in the box
-            System.out.println("Hello, " + args[0] + "!");
-        } else {
-            // This line runs if the box is empty
-            System.out.println("Hello, World!");
-        }
+        // UC3: Use ternary operator to set name to args[0] OR "World"
+        String name = (args.length > 0) ? args[0] : "World";
+
+        // Display the greeting
+        System.out.println("Hello, " + name + "!");
     }
 }
