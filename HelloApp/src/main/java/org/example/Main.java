@@ -3,26 +3,24 @@
 public static void main(String[] args) {
     String finalNames;
 
-    // Check if any arguments were passed
     if (args.length == 0) {
         finalNames = "World";
     } else {
         StringBuilder nameBuilder = new StringBuilder();
-        boolean first = true;
 
-        // The "Enhanced For Loop" - it reads "for each String 'name' in 'args'"
+        // 1. Add EVERY name + a comma and space
         for (String name : args) {
-            // Only add a comma if this is NOT the very first name we process
-            if (!first) {
-                nameBuilder.append(", ");
-            }
-            nameBuilder.append(name);
-
-            // After the first name is added, set this to false so
-            // the NEXT names get a comma
-            first = false;
+            nameBuilder.append(name).append(", ");
         }
-        finalNames = nameBuilder.toString();
+
+        // 2. Cleanup: If we added names, chop off the last ", "
+        if (nameBuilder.length() > 0) {
+            // substring(start, end) takes a slice of the text
+            // We go from 0 to (Total Length - 2)
+            finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
+        } else {
+            finalNames = "";
+        }
     }
 
     System.out.println("Hello, " + finalNames + "!");
