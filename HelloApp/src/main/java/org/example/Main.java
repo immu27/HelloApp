@@ -1,13 +1,22 @@
-package org.example;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        // UC3: Use ternary operator to set name to args[0] OR "World"
-        String name = (args.length > 0) ? args[0] : "World";
+public static void main(String[] args) {
+    String name = "World";
 
-        // Display the greeting
-        System.out.println("Hello, " + name + "!");
+    if (args.length > 0) {
+        StringBuilder nameBuilder = new StringBuilder();
+
+        // Loop through all arguments provided
+        for (int i = 0; i < args.length; i++) {
+            nameBuilder.append(args[i]);
+
+            // Add a comma and space ONLY if it's not the last name
+            if (i < args.length - 1) {
+                nameBuilder.append(", ");
+            }
+        }
+        name = nameBuilder.toString();
     }
+
+    System.out.println("Hello, " + name + "!");
 }
